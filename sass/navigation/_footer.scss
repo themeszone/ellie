@@ -1,0 +1,58 @@
+.site-footer{
+  font-size: 0.750em;
+  text-transform: uppercase;
+  .site-info{
+    a{
+      text-decoration: none;
+      text-align: center;
+      @include anim(color);
+
+      &:visited{
+
+      }
+
+      &:hover{
+        color:$color__accent;
+      }
+    }
+  }
+
+  .menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    li{
+      display: inline-block;
+      a{
+        text-decoration: none;
+        @include anim(color);
+
+        &:hover{
+          color: $color__accent;
+        }
+
+      }
+
+    }
+
+  }
+
+  .menu-social-icons-container{
+    .menu{
+      li{
+        margin: 0 1em;
+      }
+    }
+  }
+
+  .menu-footer-menu-container{
+    .menu{
+      text-align: center;
+      li{
+        margin: 0 0.5em;
+      }
+    }
+  }
+
+}

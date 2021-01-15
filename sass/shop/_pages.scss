@@ -1,0 +1,53 @@
+.logged-in.woocommerce-account .woocommerce{
+  @include smedium{
+    display: grid;
+    grid-column-gap: $size__grid-single-product-gap;
+    grid-template-columns:2fr 10fr;
+    grid-template-areas:
+            "info info"
+            "nav content";
+
+    nav{
+      grid-area: nav;;
+    }
+
+    .woocommerce-MyAccount-content{
+      grid-area: content;
+    }
+
+    .woocommerce-message,
+    .woocommerce-error
+    {
+      grid-area: info;
+    }
+
+    *:first-child:last-child{
+      grid-column: 1/-1;
+    }
+
+  }
+
+}
+
+.woocommerce-account{
+  .entry-content{
+    .woocommerce{
+      .woocommerce-MyAccount-content{
+        fieldset{
+          border:none;
+          background-color: $color__secondary_deco;
+          padding: 1em;
+
+          legend{
+            @include font-size(0.824);
+            text-transform: uppercase;
+            background-color: #fff;
+            padding: 0 1em;
+          }
+
+        }
+      }
+    }
+
+  }
+}

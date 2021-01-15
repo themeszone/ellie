@@ -1,0 +1,49 @@
+$theme_prefix: 'ellie';
+
+$size__site: 100vw;
+
+$size__site-main: 100%;
+$size__site-sidebar: 25%;
+
+$size__spacing-unit: 15px;
+
+// Header Variables
+
+$size__logo-width: 125px;
+$size__offcanvas-block: 330px;
+
+// Content Variables
+$size__content_width: 1380px;
+$size__content_inner_width: 860px;
+
+// CSS Grid Variables
+
+$size__grid-site-main: 9fr;
+$size__grid-site-sidebar: 3fr;
+$size__grid-site-full: 12fr;
+$size__grid-site-gap: 30px;
+
+// Grid Footer Widgets Gap
+$size__grid-footer-gap: 30px;
+// Grid Posts
+$size__grid-posts-gap: 30px;
+$size__grid-posts-row-gap: 30px;
+
+// Grid Products
+$size__grid-products-gap: 20px;
+
+// Single Product
+$size__grid-single-product-gap: 40px;
+
+// Checkout
+$size__grid-checkout-gap: 30px;
+
+// CSS Grid Variables End
+
+// Responsive
+$break_xsmall: 320px;
+$break_smaller: 480px;
+$break_small: 640px;
+$break_smedium: 768px;
+$break_medium: 1024px;
+$break_large: 1400px;

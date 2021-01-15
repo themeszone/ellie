@@ -1,0 +1,311 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 17) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get( $columns, $numberColumns ) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+// Basic Animation
+@mixin anim($param1, $param2: '', $param3: ''){
+	@if $param3 != '' {
+		transition:$param1 $animation__time $animation__easing, $param2 $animation__time $animation__easing, $param3 $animation__time $animation__easing;
+	} @elseif $param2 != '' {
+		transition:$param1 $animation__time $animation__easing, $param2 $animation__time $animation__easing;
+	} @else {
+		transition:$param1 $animation__time $animation__easing;
+	}
+}
+
+// Underscore hover animation
+@mixin underscore(){
+
+	position: relative;
+
+	&:before{
+		position: absolute;
+		right: 0;
+		bottom: 0px;
+		left: 0;
+		display: block;
+		width: 0;
+		height: 2px;
+		content: '';
+		-webkit-transition: width .5s cubic-bezier(.175, .885, .32, 1.4);
+		transition: width .5s cubic-bezier(.175, .885, .32, 1.4);
+		background-color: currentColor;
+	}
+
+	&:hover{
+		&:before{
+			width: 100%;
+		}
+	}
+}
+
+
+// Button style
+
+@mixin btn() {
+	border: 2px solid;
+	border-color: $color__border-button;
+	border-radius: 0px;
+	background: $color__background-button;
+	color: $color__text-button;
+	@include font-size(0.875);
+	line-height: 1;
+	padding: .5em 1em .5em;
+	@include anim(color, background-color, border-color);
+
+	&:hover {
+		border-color: $color__border-button-hover;
+		background-color: $color__background-button-hover;
+	}
+
+	&:active,
+	&:focus {
+		border-color: $color__border-button-hover;
+		background-color: $color__background-button-hover;
+	}
+
+	&:disabled{
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+// Listed Items bullets
+@mixin bullet {
+	list-style: none;
+	position: relative;
+	padding-left: 1.5rem;
+	margin: 10px 0;
+
+	&:before{
+		content:'';
+		position:absolute;
+		border: currentColor 1px solid;
+		width: 8px;
+		height: 8px;
+		top: calc(0.75em - 4px);
+		left: 0;
+		@include anim(background-color);
+	}
+
+	&:hover{
+		&:before{
+			background-color: currentColor;
+		}
+	}
+
+	li{
+		&:before{
+			width: 4px;
+			height: 4px;
+			background-color: currentColor;
+			top: calc(0.75em - 2px);
+		}
+
+		&:hover{
+			&:before{
+				background-color: transparent;
+			}
+		}
+
+		li{
+			&:before{
+				background-color: transparent;
+			}
+
+			&:hover{
+				&:before{
+					background-color: currentColor;
+				}
+			}
+		}
+	}
+}
+
+
+// Media Queries Mixin
+@mixin x-small {
+	@media screen and ( min-width: $break_xsmall ) {
+		@content;
+	}
+}
+
+@mixin limit-x-small {
+	@media screen and ( max-width: $break_xsmall - 1 ) {
+		@content;
+	}
+}
+
+@mixin small {
+	@media screen and ( min-width: $break_small ) {
+		@content;
+	}
+}
+
+@mixin limit-small {
+	@media screen and ( max-width: $break_small - 1 ) {
+		@content;
+	}
+}
+
+@mixin smedium {
+	@media screen and ( min-width: $break_smedium ) {
+		@content;
+	}
+}
+
+@mixin limit-smedium {
+	@media screen and ( max-width: $break_smedium - 1 ) {
+		@content;
+	}
+}
+
+@mixin medium {
+	@media screen and ( min-width: $break_medium ) {
+		@content;
+	}
+}
+
+@mixin limit-medium {
+	@media screen and ( max-width: $break_medium - 1 ) {
+		@content;
+	}
+}
+
+@mixin large {
+	@media screen and ( min-width: $break_large ) {
+		@content;
+	}
+}
+
+@mixin limit-large {
+	@media screen and ( max-width: $break_large - 1 ) {
+		@content;
+	}
+}
+
+@mixin ipad {
+	@media only screen
+	and (min-device-width: 768px)
+	and (max-device-width: 1024px)
+	and (-webkit-min-device-pixel-ratio: 2) {
+		@content;
+	}
+}
+
+@mixin ipadpro{
+	@media only screen
+	and (min-device-width: 1024px)
+	and (max-device-width: 1366px)
+	and (-webkit-min-device-pixel-ratio: 2) {
+		@content;
+	}
+}
+
+@mixin iphone{
+	/* Portrait and Landscape */
+	@media only screen
+	and (min-device-width: 320px)
+	and (max-device-width: 812px)
+	and (-webkit-min-device-pixel-ratio: 2) {
+		@content;
+	}
+}
+
+
+
+@mixin grid-ie-calc($items: 30, $wrap-on: 3, $grid-gap: 0) {
+	$current-row: 1;
+	$current-column: 1;
+
+	@if $grid-gap > 0 {
+		& {
+			margin: $grid-gap / 2;
+
+			@supports (grid-gap: $grid-gap) {
+				margin: 0;
+			}
+		}
+	}
+
+	@for $i from 1 through $items {
+		@if $current-column > $wrap-on {
+			$current-column: 1;
+			$current-row: $current-row + 1;
+		}
+
+		&:nth-child(#{$i}) {
+			-ms-grid-row: $current-row;
+			-ms-grid-column: $current-column;
+		}
+
+		$current-column: $current-column + 1;
+	}
+}
+
+@mixin media( $res ) {
+	@if mobile == $res {
+		@media only screen and (min-width: $break_small) {
+			@content;
+		}
+	}
+
+	@if tablet == $res {
+		@media only screen and (min-width: $break_medium) {
+			@content;
+		}
+	}
+
+	@if desktop == $res {
+		@media only screen and (min-width: $break_medium) {
+			@content;
+		}
+	}
+
+	@if wide == $res {
+		@media only screen and (min-width: $break_large) {
+			@content;
+		}
+	}
+}
+
+/* Ensure all font family declarations come with non-latin fallbacks */
+@mixin font-family( $font_family: $font__body ) {
+	font-family: $font_family;
+	@extend %non-latin-fonts;
+}
+
+/* Build our non-latin font styles */
+%non-latin-fonts {
+	@each $lang, $font__fallback in $font__fallbacks {
+		&:lang(#{$lang}) {
+			font-family: unquote( $font__fallback );
+		}
+	}
+}

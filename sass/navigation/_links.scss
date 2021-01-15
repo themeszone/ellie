@@ -1,0 +1,67 @@
+a {
+	color: $color__link;
+
+	@include anim(color);
+
+	&:visited {
+		color: $color__link-visited;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-hover;
+
+		&:after{
+			transform: translate3d(0,0,0);
+			opacity: 1;
+		}
+
+	}
+	&:focus {
+		//outline: thin dotted;
+		outline: none;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+//--------------THEME STYLE START-----------
+.site-content,
+.offcanvas-sidebar{
+	li:not(.product):not(.accordion-item){
+		a:not(.comment-reply-link):not(#cancel-comment-reply-link):not(.page-numbers){
+			text-decoration: none;
+			display: inline;
+			position: relative;
+			@include anim(color);
+
+			&:after{
+				content: '';
+				width: 100%;
+				height: 1px;
+				background-color: currentColor;
+				opacity: 0;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				transform: translate3d(0,3px,0);
+				@include anim(opacity, transform);
+
+			}
+
+			&:hover,
+			&:focus,
+			&:active {
+
+				&:after{
+					transform: translate3d(0,0,0);
+					opacity: 1;
+				}
+
+			}
+		}
+	}
+}
+//--------------THEME STYLE END--------------

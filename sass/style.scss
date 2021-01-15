@@ -1,0 +1,111 @@
+/*!
+Theme Name: Ellie
+Theme URI: https://themes.zone/ellie-free-wordpress-theme
+Author: Themes Zone
+Author URI: https://themes.zone
+Description: Ellie is a Minimal Multipurpose WordPress WooCommerce Theme with minimal and clean design. Ellie is Responsive and highly customizable. Ellie theme will be a good fit for a wedding, fashion or personal blog, website. Ellie theme fully supports WooCommerce plugin so you can easily turn your blog into an e-commerce website. Ellie theme supports Elementor so you can easily create static pages with no coding skills. Ellie Theme Demo can be found here: http://ellie.themes.zone
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: ellie
+Tags: custom-background, custom-logo, custom-menu, custom-colors, theme-options, featured-images, threaded-comments, translation-ready, grid-layout, e-commerce, blog
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Ellie is based on Underscores https://underscores.me/, (C) 2018 Themes Zone.
+Ellie is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+@import "normalize";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+@import "typography/typography";
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+@import "elements/elements";
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+@import "forms/forms";
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+@import "navigation/navigation";
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+@import "modules/accessibility";
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+@import "modules/alignments";
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+@import "modules/clearings";
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+@import "site/secondary/widgets";
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+@import "site/site";
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+@import "modules/infinite-scroll";
+
+/*--------------------------------------------------------------
+# InViewport Animation
+--------------------------------------------------------------*/
+@import "modules/animation";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+@import "media/media";

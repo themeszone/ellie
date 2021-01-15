@@ -1,0 +1,218 @@
+/**
+ * Shop tables
+ */
+table.shop_table_responsive {
+	thead {
+		display: none;
+	}
+
+	tbody {
+		th {
+			display: none;
+		}
+	}
+
+	tr {
+		td {
+			display: block;
+			text-align: right;
+			clear: both;
+
+			&:before {
+				content: attr(data-title) ': ';
+				float: left;
+			}
+
+			&.product-remove {
+				a {
+					text-align: left;
+				}
+
+				&:before {
+					display: none;
+				}
+			}
+
+			&.actions,
+			&.download-actions {
+				&:before {
+					display: none;
+				}
+			}
+
+			&.download-actions {
+				.button {
+					display: block;
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 48em) {
+	table.shop_table_responsive {
+		thead {
+			display: table-header-group;
+		}
+
+		tbody {
+			th {
+				display: table-cell;
+			}
+		}
+
+		tr {
+			th, td {
+				text-align: left;
+			}
+
+			td {
+				display: table-cell;
+
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+//-------------- THEME STYLE START ----------
+
+.shop_table{
+
+	th{
+		@include font-size(0.824);
+		text-transform: uppercase;
+		font-weight: normal;
+	}
+
+	td,th{
+		padding: 1em;
+	}
+
+	td{
+
+	}
+
+	tbody tr{
+		border-top: 1px solid;
+		border-color: $color__border-input;
+	}
+
+	.product-remove{
+		a{
+			text-decoration: none;
+			@include font-size(2);
+			color: $woocommerce__color-error;
+		}
+	}
+
+	.product-thumbnail{
+
+		line-height: 0;
+
+		img{
+			min-width: 86px;
+			max-width: 100px;
+		}
+
+		a{
+			line-height: 0;
+			font-size: 0;
+			margin: 0;
+			padding: 0;
+			display: inline-block;
+		}
+	}
+
+	.product-name{
+		a{
+			text-decoration: none;
+		}
+
+		.variation{
+			display: block;
+			padding: 0;
+			margin: 0;
+
+			@include font-size(0.824);
+
+			dt,dd{
+				margin: 0;
+				display: inline-block;
+				p{
+					margin: 0;
+				}
+			}
+
+			dd{
+				font-style: italic;
+				margin-right: 4px;
+			}
+		}
+
+	}
+
+	.product-price,
+	.product-quantity,
+	.product-subtotal
+	{
+		@include smedium{
+			text-align: center;
+		}
+	}
+
+	.product-quantity{
+		input{
+			text-align: center;
+			display: inline-block;
+			max-width: 100px;
+		}
+	}
+
+	.actions{
+		padding-left: 0;
+		padding-right: 0;
+
+		button{
+			float: right;
+			margin-top: 1.5em;
+		}
+
+	}
+
+	.button{
+		padding: 0.824em 2.000em 0.765em;
+	}
+
+	.coupon{
+		padding: 1.5em;
+		display: inline-block;
+		background-color: $color__secondary_deco;
+
+		label{
+			display: none;
+		}
+
+		.input-text{
+			max-width: 100%;
+			width: 100%;
+			@include smedium{
+				width: 15em;
+				margin-right: 1em;
+			}
+		}
+
+		.button{
+			@include limit-smedium{
+				margin-top: 1em;
+			}
+		}
+
+	}
+
+}
+
+//-------------- THEME STYLE END ------------

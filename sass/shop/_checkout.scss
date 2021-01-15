@@ -1,0 +1,149 @@
+/**
+ * Checkout
+ */
+//@media screen and (min-width: 768px) {
+//	.col2-set {
+//		.form-row-first {
+//			float: left;
+//			margin-right: $columns__margin;
+//		}
+//
+//		.form-row-last {
+//			float: right;
+//			margin-right: 0;
+//		}
+//
+//		.form-row-first,
+//		.form-row-last {
+//			@include column-width(2);
+//		}
+//	}
+//}
+
+.woocommerce-checkout{
+	.woocommerce{
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+}
+
+.form-row{
+	margin-top: 0;
+	margin-bottom: 1em;
+	input[type="text"],
+	input[type="number"],
+	input[type="email"],
+	input[type="password"],
+	input[type="tel"]{
+		width: 100%;
+	}
+}
+
+.form-row-first,
+.form-row-last{
+	width: 100%;
+	@include smedium{
+		width: 49.7%;
+		display: inline-block;
+	}
+}
+
+@include smedium {
+	.form-row-first {
+		padding-right: 15px;
+	}
+
+	.form-row-last {
+		padding-left: 15px;
+		right: 0;
+	}
+}
+
+form.woocommerce-checkout{
+	@include clearfix;
+	position: relative;
+	display: grid;
+	grid-column-gap: $size__grid-checkout-gap;
+	@include medium{
+		grid-template-columns:6fr 6fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+						"notice notice"
+						"form cart"
+						"form cart";
+
+		.woocommerce-NoticeGroup{
+			grid-area: notice;
+		}
+
+		.col2-set{
+			grid-area: form;
+		}
+
+		h3{
+			grid-area: cart;
+		}
+
+		.woocommerce-checkout-review-order{
+			grid-area: cart;
+			margin-top: 3.5em;
+		}
+
+	}
+
+	#ship-to-different-address{
+		font-family: inherit;
+		@include font-size(0.824);
+		text-transform: uppercase;
+	}
+
+	h3{
+		font-weight: normal;
+	}
+
+	.create-account{
+		span{
+			@include font-size(0.824);
+			text-transform: uppercase;
+		}
+	}
+
+}
+
+.woocommerce-checkout-payment{
+	ul{
+		list-style: none;
+		padding-left: 0;
+
+		.input-radio{
+			margin-right: 10px;
+		}
+
+		.payment_box{
+			margin: 1em 0 1em 1em;
+			padding: 1em;
+			background-color: $color__secondary_deco;
+		}
+
+		.payment_method_paypal{
+			img{
+				max-width: 200px;
+				height: auto;
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0 1em;
+			}
+		}
+
+	}
+
+	.button{
+		color: #fff;
+		text-transform: uppercase;
+		text-decoration: none;
+		text-align: center;
+		padding: 0.824em 2.000em;
+		width: 100%;
+		display: inline-block;
+	}
+}

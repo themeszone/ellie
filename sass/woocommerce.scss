@@ -1,0 +1,58 @@
+/*
+Theme Name: ellie
+
+WooCommerce styles override
+*/
+
+/**
+ * WooCommerce color variables
+ */
+$woocommerce__color-error: #FA4659;
+$woocommerce__color-success: #11CBD7;
+$woocommerce__color-info: #FDA403;
+
+/**
+ * Imports
+ */
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
+
+/**
+ * Shop tables
+ */
+@import "shop/tables";
+
+/**
+ * Products
+ */
+@import "shop/products";
+
+/**
+ * Single product
+ */
+@import "shop/single-product";
+
+/**
+ * Shopping Cart
+ */
+@import "shop/cart";
+
+/**
+ * Checkout
+ */
+@import "shop/checkout";
+
+/**
+ * General WooCommerce components
+ */
+@import "shop/components";
+
+/**
+ * WooCommerce widgets
+ */
+@import "shop/widgets";
+
+/**
+ * WooCommerce pages
+ */
+@import "shop/pages";
